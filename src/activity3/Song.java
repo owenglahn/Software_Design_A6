@@ -22,4 +22,9 @@ public class Song
 	{
 		return aFile;
 	}
+	
+	public void editTag(String pTag, String pValue)
+	{
+		aTags.put(pTag, pValue);
+	}
 }
