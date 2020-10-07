@@ -30,4 +30,9 @@ public class Playlist
 	{
 		aSongs.add(pSong);
 	}
+	
+	public void backup() 
+	{
+	    System.out.println("Backing up the library");
+	}
 }
