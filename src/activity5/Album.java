@@ -3,9 +3,9 @@ package activity5;
 import java.util.Map;
 
 /**
- * Represents an album with a title (mandatory) and 
- * artist (can be absent). An album can be incomplete,
- * in the sense that some tracks can be missing.
+ * Represents an album with a title and artist. 
+ * An album can be incomplete, in the sense that some
+ * tracks can be missing.
  */
 public class Album implements Playable
 {
@@ -75,7 +75,7 @@ public class Album implements Playable
 	@Override
 	public void play()
 	{
-		// TODO Auto-generated method stub	
+		
 	}
 
 	@Override
