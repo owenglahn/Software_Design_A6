@@ -27,10 +27,11 @@ public class Song implements Playable
 	 * @param pFile The corresponding file.
 	 * @pre pFile != null;
 	 */
-	public Song(File pFile)
+	public Song(File pFile, String pTitle)
 	{
 		assert pFile != null;
 		aFile = pFile;
+		aTitle = pTitle;
 		aDuration = MediaSystem.instance().duration(pFile);
 	}
 	
@@ -112,7 +113,7 @@ public class Song implements Playable
 	@Override
 	public void play()
 	{
-		// TODO Auto-generated method stub
+		MediaSystem.instance().playSong(this);
 	}
 
 	@Override

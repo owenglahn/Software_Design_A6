@@ -15,7 +15,7 @@ public class Album implements Playable
 	
 	private String aTitle = "";
 	private String aArtist = "";
-	private Map<Integer, Song> aTracks = new TreeMap<>();
+	private Map<Integer, Song> aTracks = new TreeMap<>(); // TreeMap keeps the tracks in order
 	
 	/**
 	 * Create a new album with no track.
