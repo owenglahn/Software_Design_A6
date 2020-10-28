@@ -13,7 +13,6 @@ public class Song implements Playable
 	private final static String UNTITLED = "<untitled>";
 	private final static String UNDEFINED = "<undefined %s>";
 	private final static String TAG_ARTIST = "artist";
-	private final static String TAG_TITLE = "title";
 	
 	private final File aFile;
 	private int aDuration;
@@ -79,14 +78,7 @@ public class Song implements Playable
 	public void setTag(String pTag, String pValue)
 	{
 		assert pTag != null && pValue != null;
-		if( pTag.toLowerCase().equals(TAG_TITLE))
-		{
-			aTitle = pValue;
-		}
-		else
-		{
-			aTags.put(pTag.toLowerCase(), pValue);
-		}
+		aTags.put(pTag.toLowerCase(), pValue);
 	}
 	
 	/**
@@ -100,14 +92,7 @@ public class Song implements Playable
 	public String getTag(String pTag)
 	{
 		assert pTag != null;
-		if( pTag.toLowerCase().equals(TAG_TITLE))
-		{
-			return getTitle();
-		}
-		else
-		{
-			return aTags.getOrDefault(pTag.toLowerCase(), String.format(UNDEFINED, pTag));
-		}
+		return aTags.getOrDefault(pTag.toLowerCase(), String.format(UNDEFINED, pTag));
 	}
 	
 	@Override
