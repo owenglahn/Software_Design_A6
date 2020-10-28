@@ -1,6 +1,7 @@
 package activity5;
 
 import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Represents an album with a title and artist. 
@@ -14,7 +15,7 @@ public class Album implements Playable
 	
 	private String aTitle = "";
 	private String aArtist = "";
-	private Map<Integer, Song> aTracks;
+	private Map<Integer, Song> aTracks = new TreeMap<>();
 	
 	/**
 	 * Create a new album with no track.
@@ -83,7 +84,10 @@ public class Album implements Playable
 	@Override
 	public void play()
 	{
-		
+		for( Song track : aTracks.values() )
+		{
+			track.play();
+		}
 	}
 
 	@Override
