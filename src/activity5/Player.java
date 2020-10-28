@@ -16,7 +16,26 @@ public class Player
 		return INSTANCE;
 	}
 	
-	public void playSong(Song pSong) {}
-	public void playSilence(int pTime) {}
-	public int duration(File pSong) { return RANDOM.nextInt(10); }
+	/**
+	 * Stub method that pretends to be an audio API that plays
+	 * the song in its entirety.
+	 */
+	public void playSong(Song pSong) 
+	{
+		System.out.println("Playing " + pSong.description());
+	}
+	
+	public void playSilence(int pTime) 
+	{
+		System.out.println("Playing " + pTime + " seconds of silence" );
+	}
+	
+	/**
+	 * Stub method that pretends to obtain the duration of a song in seconds by reading
+	 *  the media file.
+	 */
+	public int duration(File pSong) 
+	{ 
+		return RANDOM.nextInt(10); 
+	} 
 }
