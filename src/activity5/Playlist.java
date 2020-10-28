@@ -30,7 +30,11 @@ public class Playlist implements Playable
 	 */
 	public String getTitle()
 	{
-		return aTitle.isBlank() ? UNTITLED : aTitle;
+		if( aTitle.isBlank() )
+		{
+			return UNTITLED;
+		}
+		return aTitle;
 	}
 	
 	/**

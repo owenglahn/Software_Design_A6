@@ -13,7 +13,7 @@ public class Album implements Playable
 	private final static String UNDEFINED = "<undefined %s>";
 	
 	private String aTitle = "";
-	private String aAlbumArtist = "";
+	private String aArtist = "";
 	private Map<Integer, Song> aTracks;
 	
 	/**
@@ -27,7 +27,7 @@ public class Album implements Playable
 	{
 		assert pTitle != null && pAlbumArtist != null;
 		aTitle = pTitle;
-		aAlbumArtist = pAlbumArtist;
+		aArtist = pAlbumArtist;
 	}
 	
 	/**
@@ -47,7 +47,11 @@ public class Album implements Playable
 	 */
 	public String getTitle()
 	{
-		return aTitle.isBlank() ? UNTITLED : aTitle;
+		if( aTitle.isBlank() )
+		{
+			return UNTITLED;
+		}
+		return aTitle;
 	}
 	
 	/**
@@ -55,7 +59,11 @@ public class Album implements Playable
 	 */
 	public String getArtist()
 	{
-		return aAlbumArtist.isBlank() ? String.format(UNDEFINED, "artist") : aAlbumArtist;
+		if( aArtist .isBlank() )
+		{
+			return String.format(UNDEFINED, "artist");
+		}
+		return aArtist;
 	}
 	
 	/**
@@ -92,6 +100,6 @@ public class Album implements Playable
 	@Override
 	public String description()
 	{
-		return "Album: " + aTitle + " by " + aAlbumArtist;
+		return "Album: " + aTitle + " by " + aArtist;
 	}
 }
