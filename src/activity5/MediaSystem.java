@@ -4,14 +4,14 @@ import java.io.File;
 import java.util.Random;
 
 /**
- * Stub for a media player. Accessible as a singleton.
+ * Stub for a media system. Accessible as a singleton.
  */
-public class Player
+public class MediaSystem
 {
-	private static final Player INSTANCE = new Player();
+	private static final MediaSystem INSTANCE = new MediaSystem();
 	private static final Random RANDOM = new Random();
 	
-	public static Player instance()
+	public static MediaSystem instance()
 	{
 		return INSTANCE;
 	}
@@ -32,7 +32,7 @@ public class Player
 	
 	/**
 	 * Stub method that pretends to obtain the duration of a song in seconds by reading
-	 *  the media file.
+	 * the media file. See the Song class.
 	 */
 	public int duration(File pSong) 
 	{ 

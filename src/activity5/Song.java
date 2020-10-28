@@ -31,7 +31,7 @@ public class Song implements Playable
 	{
 		assert pFile != null;
 		aFile = pFile;
-		aDuration = Player.instance().duration(pFile);
+		aDuration = MediaSystem.instance().duration(pFile);
 	}
 	
 	/**
