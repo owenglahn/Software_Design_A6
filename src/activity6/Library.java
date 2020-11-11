@@ -11,26 +11,30 @@ import java.util.List;
 public class Library implements Iterable<Playable>
 {
 	private final List<Playable> aPlayables = new ArrayList<>();
-	
+	private final ActionLogger aStatusLogger = new StatusLogger();
 	/**
 	 * Creates a new empty library.
 	 */
 	public Library()
 	{
 		// Just for demonstration
-		addItem(new Song(new File("A.mp3"), "Song A"));
-		addItem(new Song(new File("B.mp3"), "Song B"));
-		addItem(new Song(new File("C.mp3"), "Song C"));
+		addPlayable(new Song(new File("A.mp3"), "Song A"));
+		addPlayable(new Song(new File("B.mp3"), "Song B"));
+		addPlayable(new Song(new File("C.mp3"), "Song C"));
 	}
 	
-	public void addItem(Playable pPlayable)
+	public void addPlayable(Playable pPlayable)
 	{
 		aPlayables.add(pPlayable);
+		Sysout.out.println("The item: " + pPlayable + "has been added.");
+		aStatusLogger.PlayableAdded(Playable pPlayable);
 	}
 	
-	public void removeItem(Playable pPlayable)
+	public void removePlayable(Playable pPlayable)
 	{
 		aPlayables.remove(pPlayable);
+		Sysout.out.println("The item: " + pPlayable + "has been removed.");
+		aStatusLogger.PlayableRemoved(Playable pPlayable);
 	}
 
 	@Override
