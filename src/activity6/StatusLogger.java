@@ -6,10 +6,10 @@ public class StatusLogger implements ActionLogger
     
     public void PlayableAdded(Playable pPlayable)
     {
-        Sysout.out.println("The item: " + pPlayable + "has been added.");
+        System.out.println("The item: " + pPlayable + "has been added.");
     }
     public void PlayableRemoved(Playable pPlayable)
     {
-        Sysout.out.println("The item: " + pPlayable + "has been removed.");
+        System.out.println("The item: " + pPlayable + "has been removed.");
     }
 }

@@ -1,7 +1,7 @@
 package activity6;
 
-public interface Observer
+public interface ActionLogger
 {
-    public void PlayableAdded(){};
-    public void PlayableRemoved(){};
+    public void PlayableAdded(Playable pPlayable);
+    public void PlayableRemoved(Playable pPlayable);
 }

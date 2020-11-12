@@ -26,15 +26,15 @@ public class Library implements Iterable<Playable>
 	public void addPlayable(Playable pPlayable)
 	{
 		aPlayables.add(pPlayable);
-		Sysout.out.println("The item: " + pPlayable + "has been added.");
-		aStatusLogger.PlayableAdded(Playable pPlayable);
+		System.out.println("The item: " + pPlayable + "has been added.");
+		aStatusLogger.PlayableAdded(pPlayable);
 	}
 	
 	public void removePlayable(Playable pPlayable)
 	{
 		aPlayables.remove(pPlayable);
-		Sysout.out.println("The item: " + pPlayable + "has been removed.");
-		aStatusLogger.PlayableRemoved(Playable pPlayable);
+		System.out.println("The item: " + pPlayable + "has been removed.");
+		aStatusLogger.PlayableRemoved(pPlayable);
 	}
 
 	@Override
