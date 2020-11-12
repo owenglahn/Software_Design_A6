@@ -44,4 +44,4 @@ public class StatusLogger extends Parent implements ActionLogger
     }
 }
 
-}
+
