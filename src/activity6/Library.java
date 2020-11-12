@@ -1,8 +1,5 @@
 package activity6;
 
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.Parent;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Iterator;

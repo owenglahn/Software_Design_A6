@@ -4,8 +4,6 @@ import java.io.File;
 import java.util.Optional;
 
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -83,20 +81,6 @@ public class LibraryUI extends Application
         pStage.show();
     }
     
-    /*
-     * Encapsulates the view of a collection of Playable objects as a list
-     * view. 
-     */
-//    private static ListView<Playable> createLibraryView(Iterable<Playable> pPlayables)
-//    {
-//    	ObservableList<Playable> list = FXCollections.observableArrayList();
-//    	for( Playable playable : pPlayables )
-//    	{
-//    		list.add(playable);
-//    	}
-//    	return new ListView<>(list);
-//    }
-    
     // Sample code to activate the file chooser
     private static Optional<File> selectFile(Stage pStage)
     {
@@ -110,15 +94,5 @@ public class LibraryUI extends Application
     {
     	return pView.getSelectionModel().getSelectedItem();
     }
-    
-    /*
-     * Removes the selected Playable item.
-     */
-//    private static void removeSelected(ListView<Playable> pView, Library pLibrary)
-//    {
-//    	Playable playableToRemove = getSelected(pView);
-//    	pLibrary.removePlayable(playableToRemove);
-//    	pView.getItems().remove(playableToRemove);
-//    }
 }
 
