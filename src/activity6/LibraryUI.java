@@ -112,3 +112,4 @@ public class LibraryUI extends Application
     	pView.getItems().remove(playableToRemove);
     }
 }
+
