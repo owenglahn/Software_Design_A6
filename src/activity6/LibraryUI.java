@@ -61,6 +61,7 @@ public class LibraryUI extends Application
     	bottom.getChildren().add(deleteButton);
     	root.setBottom(bottom);
     	
+    	/* Remove a selected playable if the remove button is clicked */
     	deleteButton.setOnAction(new EventHandler<ActionEvent>(){
     		@Override
     		public void handle(ActionEvent pActionEvent)
@@ -101,11 +102,13 @@ public class LibraryUI extends Application
     	return pView.getSelectionModel().getSelectedItem();
     }
     
+    /*
+     * Removes the selected Playable item.
+     */
     private static void removeSelected(ListView<Playable> pView, Library pLibrary)
     {
     	Playable playableToRemove = getSelected(pView);
     	pLibrary.removeItem(playableToRemove);
     	pView.getItems().remove(playableToRemove);
-    	System.out.println("Removed " + playableToRemove.toString() + " from the library.");
     }
 }
