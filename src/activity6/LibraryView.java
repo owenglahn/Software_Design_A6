@@ -8,7 +8,7 @@ import javafx.scene.control.ListView;
 public class LibraryView extends Parent implements LibraryObserver
 {
 	private final ObservableList<Playable> aObservablePlayables = FXCollections.observableArrayList();
-	private ListView<Playable> aListView;
+	private final ListView<Playable> aListView;
 	
 	public LibraryView(Library pModel)
 	{
