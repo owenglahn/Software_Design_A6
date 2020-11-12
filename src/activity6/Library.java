@@ -1,4 +1,7 @@
 package activity6;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Parent;
 import java.io.File;
 import java.util.ArrayList;
@@ -11,7 +14,8 @@ import java.util.List;
 public class Library implements Iterable<Playable>
 {
 	private final List<Playable> aPlayables = new ArrayList<>();
-	private final ActionLogger aStatusLogger = new StatusLogger(this);
+	private final List<LibraryObserver> aLibraryObservers = new ArrayList<>();
+
 	/**
 	 * Creates a new empty library.
 	 */
@@ -22,29 +26,35 @@ public class Library implements Iterable<Playable>
 		addPlayable(new Song(new File("B.mp3"), "Song B"));
 		addPlayable(new Song(new File("C.mp3"), "Song C"));
 	}
-	
-	/**
-	 * Return the Logger as a node (useful for GUI display and prevent 
-	 * users from invoking false add/remove messages)
-	 */
-	public Parent getLoggerAsNode()
+
+	public void addLibraryObserver(LibraryObserver pLibraryObserver)
 	{
-		Parent Logger = (Parent)aStatusLogger;
-		return Logger;
+		aLibraryObservers.add(pLibraryObserver);
 	}
-	
+
+	public void removeLibraryObserver(LibraryObserver pLibraryObserver)
+	{
+		aLibraryObservers.remove(pLibraryObserver);
+	}
+
 	public void addPlayable(Playable pPlayable)
 	{
 		aPlayables.add(pPlayable);
 		System.out.println("The item: " + pPlayable + " has been added.");
-		aStatusLogger.PlayableAdded(pPlayable);
+		for (LibraryObserver libObs : aLibraryObservers)
+		{
+			libObs.playableAdded(pPlayable);
+		}
 	}
-	
+
 	public void removePlayable(Playable pPlayable)
 	{
 		aPlayables.remove(pPlayable);
 		System.out.println("The item: " + pPlayable + " has been removed.");
-		aStatusLogger.PlayableRemoved(pPlayable);
+		for (LibraryObserver libObs : aLibraryObservers)
+		{
+			libObs.playableRemoved(pPlayable);
+		}
 	}
 
 	@Override

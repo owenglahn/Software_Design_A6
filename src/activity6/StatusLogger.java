@@ -3,14 +3,15 @@ package activity6;
 import javafx.scene.Parent;
 import javafx.scene.text.*;
 
-public class StatusLogger extends Parent implements ActionLogger
+public class StatusLogger extends Parent implements LibraryObserver
 {
-	private Library model;
-	private TextFlow displayer = new TextFlow(); 
-    public StatusLogger(Library pmodel)
+	private Library aModel;
+	private TextFlow aDisplayer = new TextFlow();
+	
+    public StatusLogger(Library pModel)
     {
-    	this.model = pmodel;
-    	getChildren().add(displayer);
+    	this.aModel = pModel;
+    	getChildren().add(aDisplayer);
     }
 
     /**
@@ -27,20 +28,20 @@ public class StatusLogger extends Parent implements ActionLogger
     /**
      * Log the adding action to a text node and add the text node to the textflow (displayer)
      */
-    public void PlayableAdded(Playable pPlayable)
+    public void playableAdded(Playable pPlayable)
     {
     	Text newAction = newNode();
     	newAction.setText("The item: " + pPlayable + "\n has been added. \n");
-    	displayer.getChildren().add(newAction);
+    	aDisplayer.getChildren().add(newAction);
     }
     /**
      * Log the removing action to a text node and add the text node to the textflow (displayer)
      */
-    public void PlayableRemoved(Playable pPlayable)
+    public void playableRemoved(Playable pPlayable)
     {
     	Text newAction = newNode();
         newAction.setText("The item: " + pPlayable + "\n has been removed. \n");
-        displayer.getChildren().add(newAction);
+        aDisplayer.getChildren().add(newAction);
     }
 }
 
