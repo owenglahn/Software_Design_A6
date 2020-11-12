@@ -6,4 +6,5 @@ module activity6
 	requires transitive javafx.graphics;	
 	requires static junit;
 	requires org.junit.jupiter.api;
+	requires javafx.base;
 }

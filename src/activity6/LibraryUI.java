@@ -6,6 +6,7 @@ import java.util.Optional;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.EventHandler;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
@@ -13,6 +14,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.event.ActionEvent;
 
 /**
  * Mock-up of a partial user interface for the music library.
@@ -59,6 +61,13 @@ public class LibraryUI extends Application
     	bottom.getChildren().add(deleteButton);
     	root.setBottom(bottom);
     	
+    	deleteButton.setOnAction(new EventHandler<ActionEvent>(){
+    		@Override
+    		public void handle(ActionEvent pActionEvent)
+    		{
+    			removeSelected(listView, library);
+    		}
+    	});
     	
         pStage.setScene(new Scene(root, WIDTH, HEIGHT));
         pStage.show();
@@ -90,5 +99,13 @@ public class LibraryUI extends Application
     private static Playable getSelected(ListView<Playable> pView)
     {
     	return pView.getSelectionModel().getSelectedItem();
+    }
+    
+    private static void removeSelected(ListView<Playable> pView, Library pLibrary)
+    {
+    	Playable playableToRemove = getSelected(pView);
+    	pLibrary.removeItem(playableToRemove);
+    	pView.getItems().remove(playableToRemove);
+    	System.out.println("Removed " + playableToRemove.toString() + " from the library.");
     }
 }
