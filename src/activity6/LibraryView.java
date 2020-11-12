@@ -22,7 +22,7 @@ public class LibraryView extends Parent implements LibraryObserver
 	@Override
 	public void playableAdded(Playable pPlayable)
 	{
-		// TODO Auto-generated method stub
+		aObservablePlayables.add(pPlayable);
 
 	}
 

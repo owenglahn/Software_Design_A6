@@ -54,10 +54,27 @@ public class LibraryUI extends Application
     	Button addButton = new Button("Add Song");
     	addButton.setMaxWidth(Double.MAX_VALUE);
     	root.setTop(addButton);
- 	
+    	
     	// Create the view of all playables 
     	ListView<Playable> listView = ((LibraryView) libraryView).getListView();
     	root.setCenter(listView);
+    	
+    	//Add playable
+    	addButton.setOnAction(new EventHandler<ActionEvent>() 
+    	{
+			@Override
+			public void handle(ActionEvent pActionEvent)
+			{
+				//open file dialog
+				Optional<File> selected = selectFile(pStage);
+				Song fileSong = songFromSelection(selected); 
+				library.addPlayable(fileSong);
+				
+			}
+    	});
+
+ 	
+    	
     	
     	// Create bottom panel
     	VBox bottom = new VBox();
@@ -80,6 +97,23 @@ public class LibraryUI extends Application
         pStage.setScene(new Scene(root, WIDTH, HEIGHT));
         pStage.show();
     }
+    
+    /*
+     * Returns a Song from the selected file from a file chooser
+     * Uses the filename without the last extension as the song title
+     */
+    private static Song songFromSelection(Optional<File> pSelected)
+    {
+    	File f = pSelected.get();
+		String title = f.getName();
+		
+		//get filename without extension
+		int lastIndex = title.lastIndexOf('.');
+		if (lastIndex != -1)
+			title = title.substring(0, lastIndex);
+		return new Song(f, title);
+    }
+
     
     // Sample code to activate the file chooser
     private static Optional<File> selectFile(Stage pStage)
