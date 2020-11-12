@@ -2,7 +2,7 @@ package activity6;
 
 import java.io.File;
 import java.util.Optional;
-
+import javafx.scene.Parent;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -59,6 +59,8 @@ public class LibraryUI extends Application
     	bottom.getChildren().add(deleteButton);
     	root.setBottom(bottom);
     	
+		//Create Status Logging Display
+    	root.setRight(library.getLoggerAsNode());
     	
         pStage.setScene(new Scene(root, WIDTH, HEIGHT));
         pStage.show();
