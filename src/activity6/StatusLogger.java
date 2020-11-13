@@ -11,6 +11,7 @@ public class StatusLogger extends Parent implements LibraryObserver
     public StatusLogger(Library pModel)
     {
     	this.aModel = pModel;
+    	aModel.addLibraryObserver(this);
     	getChildren().add(aDisplayer);
     }
 

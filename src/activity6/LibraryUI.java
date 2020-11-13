@@ -45,9 +45,6 @@ public class LibraryUI extends Application
     	Parent logger = new StatusLogger(library);
     	Parent libraryView = new LibraryView(library);
     	
-    	library.addLibraryObserver((LibraryObserver) logger);
-    	library.addLibraryObserver((LibraryObserver) libraryView);
-    	
     	BorderPane root = new BorderPane();
     	
     	// Create button to add files to the library
