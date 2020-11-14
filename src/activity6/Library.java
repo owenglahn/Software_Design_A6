@@ -24,18 +24,37 @@ public class Library implements Iterable<Playable>
 		addPlayable(new Song(new File("C.mp3"), "Song C"));
 	}
 
+	/*
+	 * Adds pLibraryObserver to aLibraryObservers
+	 * 
+	 * @param pLibraryObserver the LibraryObserver to add
+	 * @pre pLibraryObserver != null 
+	 */
 	public void addLibraryObserver(LibraryObserver pLibraryObserver)
 	{
+		assert pLibraryObserver != null;
 		aLibraryObservers.add(pLibraryObserver);
 	}
 
+	/* 
+	 * Removes a LibraryObserver from aLibraryObservers
+	 * 
+	 * @param pLibraryObserver the LibraryObserver to remove
+	 */
 	public void removeLibraryObserver(LibraryObserver pLibraryObserver)
 	{
 		aLibraryObservers.remove(pLibraryObserver);
 	}
 
+	/* 
+	 * Adds pPlayable to aPlayables
+	 * 
+	 * @param pPlayable the Playable to add
+	 * @pre pPlayable != null
+	 */
 	public void addPlayable(Playable pPlayable)
 	{
+		assert pPlayable != null;
 		aPlayables.add(pPlayable);
 		System.out.println("The item: " + pPlayable + " has been added.");
 		for (LibraryObserver libObs : aLibraryObservers)
@@ -44,6 +63,11 @@ public class Library implements Iterable<Playable>
 		}
 	}
 
+	/*
+	 * Removes pPlayable from aPlayables
+	 * 
+	 * @param pPlayable the Playable to remove
+	 */
 	public void removePlayable(Playable pPlayable)
 	{
 		aPlayables.remove(pPlayable);
@@ -54,6 +78,9 @@ public class Library implements Iterable<Playable>
 		}
 	}
 
+	/*
+	 * @return reused Iterator<Playable> from aPlayables
+	 */
 	@Override
 	public Iterator<Playable> iterator()
 	{
