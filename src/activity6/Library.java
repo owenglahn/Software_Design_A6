@@ -28,28 +28,34 @@ public class Library implements Iterable<Playable>
 	 * Adds pLibraryObserver to aLibraryObservers
 	 * 
 	 * @param pLibraryObserver the LibraryObserver to add
-	 * @pre pLibraryObserver != null 
+	 * 
+	 * @pre pLibraryObserver != null
 	 */
 	public void addLibraryObserver(LibraryObserver pLibraryObserver)
 	{
 		assert pLibraryObserver != null;
-		aLibraryObservers.add(pLibraryObserver);
+
+		if (!aLibraryObservers.contains(pLibraryObserver))
+			aLibraryObservers.add(pLibraryObserver);
 	}
 
-	/* 
+	/*
 	 * Removes a LibraryObserver from aLibraryObservers
 	 * 
 	 * @param pLibraryObserver the LibraryObserver to remove
 	 */
 	public void removeLibraryObserver(LibraryObserver pLibraryObserver)
 	{
-		aLibraryObservers.remove(pLibraryObserver);
+		assert pLibraryObserver != null;
+		if (aLibraryObservers.contains(pLibraryObserver))
+			aLibraryObservers.remove(pLibraryObserver);
 	}
 
-	/* 
+	/*
 	 * Adds pPlayable to aPlayables
 	 * 
 	 * @param pPlayable the Playable to add
+	 * 
 	 * @pre pPlayable != null
 	 */
 	public void addPlayable(Playable pPlayable)
@@ -70,6 +76,7 @@ public class Library implements Iterable<Playable>
 	 */
 	public void removePlayable(Playable pPlayable)
 	{
+		assert pPlayable != null;
 		aPlayables.remove(pPlayable);
 		System.out.println("The item: " + pPlayable + " has been removed.");
 		for (LibraryObserver libObs : aLibraryObservers)

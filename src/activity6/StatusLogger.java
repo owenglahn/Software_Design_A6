@@ -11,6 +11,7 @@ public class StatusLogger extends Parent implements LibraryObserver
     public StatusLogger(Library pModel)
     {
     	this.aModel = pModel;
+    	aModel.addLibraryObserver(this);
     	getChildren().add(aDisplayer);
     }
 
@@ -28,6 +29,7 @@ public class StatusLogger extends Parent implements LibraryObserver
     /**
      * Log the adding action to a text node and add the text node to the textflow (displayer)
      */
+    @Override
     public void playableAdded(Playable pPlayable)
     {
     	Text newAction = newNode();
@@ -37,6 +39,7 @@ public class StatusLogger extends Parent implements LibraryObserver
     /**
      * Log the removing action to a text node and add the text node to the textflow (displayer)
      */
+    @Override
     public void playableRemoved(Playable pPlayable)
     {
     	Text newAction = newNode();

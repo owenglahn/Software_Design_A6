@@ -15,6 +15,7 @@ public class LibraryView extends Parent implements LibraryObserver
 	 */
 	public LibraryView(Library pModel)
 	{
+		pModel.addLibraryObserver(this);
 		for ( Playable pPlayable : pModel )
 		{
 			aObservablePlayables.add(pPlayable);
@@ -32,8 +33,7 @@ public class LibraryView extends Parent implements LibraryObserver
 	public void playableAdded(Playable pPlayable)
 	{
 		assert pPlayable != null;
-		// TODO Auto-generated method stub
-
+		aObservablePlayables.add(pPlayable);
 	}
 
 	/*
