@@ -18,10 +18,7 @@ public class Library implements Iterable<Playable>
 	 */
 	public Library()
 	{
-		// Just for demonstration
-		addPlayable(new Song(new File("A.mp3"), "Song A"));
-		addPlayable(new Song(new File("B.mp3"), "Song B"));
-		addPlayable(new Song(new File("C.mp3"), "Song C"));
+
 	}
 
 	public void addLibraryObserver(LibraryObserver pLibraryObserver)
