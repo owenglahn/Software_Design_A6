@@ -9,13 +9,15 @@ public class LibraryView extends Parent implements LibraryObserver
 {
 	private final ObservableList<Playable> aObservablePlayables = FXCollections.observableArrayList();
 	private final ListView<Playable> aListView;
+	private final Library aModel;
 	
 	/*
 	 * Instantiates a LibraryView Object
 	 */
 	public LibraryView(Library pModel)
 	{
-		pModel.addLibraryObserver(this);
+		aModel = pModel;
+		aModel.addLibraryObserver(this);
 		for ( Playable pPlayable : pModel )
 		{
 			aObservablePlayables.add(pPlayable);
