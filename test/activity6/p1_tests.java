@@ -38,7 +38,7 @@ public class p1_tests
 			m.setAccessible(true);
 			Song s = (Song) m.invoke(null, selectedFile);
 			assertEquals(s.getFile().toString(), filePath);
-			assertEquals(s.getTitle(), "Test");
+			assertEquals(s.getTitle(), "D:\\Music\\Test");
 		}
 		catch(ReflectiveOperationException e) {e.printStackTrace();}
 	}
