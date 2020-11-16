@@ -21,13 +21,26 @@ public class Library implements Iterable<Playable>
 
 	}
 
+	/*
+	 * Adds pLibraryObserver to aLibraryObservers
+	 * 
+	 * @param pLibraryObserver the LibraryObserver to add
+	 * 
+	 * @pre pLibraryObserver != null
+	 */
 	public void addLibraryObserver(LibraryObserver pLibraryObserver)
 	{
 		assert pLibraryObserver != null;
+
 		if (!aLibraryObservers.contains(pLibraryObserver))
 			aLibraryObservers.add(pLibraryObserver);
 	}
 
+	/*
+	 * Removes a LibraryObserver from aLibraryObservers
+	 * 
+	 * @param pLibraryObserver the LibraryObserver to remove
+	 */
 	public void removeLibraryObserver(LibraryObserver pLibraryObserver)
 	{
 		assert pLibraryObserver != null;
@@ -35,6 +48,13 @@ public class Library implements Iterable<Playable>
 			aLibraryObservers.remove(pLibraryObserver);
 	}
 
+	/*
+	 * Adds pPlayable to aPlayables
+	 * 
+	 * @param pPlayable the Playable to add
+	 * 
+	 * @pre pPlayable != null
+	 */
 	public void addPlayable(Playable pPlayable)
 	{
 		assert pPlayable != null;
@@ -46,6 +66,11 @@ public class Library implements Iterable<Playable>
 		}
 	}
 
+	/*
+	 * Removes pPlayable from aPlayables
+	 * 
+	 * @param pPlayable the Playable to remove
+	 */
 	public void removePlayable(Playable pPlayable)
 	{
 		assert pPlayable != null;
@@ -57,6 +82,9 @@ public class Library implements Iterable<Playable>
 		}
 	}
 
+	/*
+	 * @return reused Iterator<Playable> from aPlayables
+	 */
 	@Override
 	public Iterator<Playable> iterator()
 	{
