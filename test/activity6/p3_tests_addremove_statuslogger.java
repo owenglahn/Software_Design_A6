@@ -78,8 +78,8 @@ public class p3_tests_addremove_statuslogger
 			Text text2 = (Text)(textF.getChildren().get(2));
 			
 			assertEquals ("The item: Song 1 by <undefined artist>\n has been added. \n", text.getText());
-			assertEquals ("The item: Song 2 by <undefined artist>\n has been added. \n", text.getText());
-			assertEquals ("The item: Song 1 by <undefined artist>\n has been removed. \n", text.getText());
+			assertEquals ("The item: Song 2 by <undefined artist>\n has been added. \n", text1.getText());
+			assertEquals ("The item: Song 1 by <undefined artist>\n has been removed. \n", text2.getText());
 		}
 		catch (ReflectiveOperationException e) {e.printStackTrace();}
 	}
