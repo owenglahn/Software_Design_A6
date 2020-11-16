@@ -1,4 +1,4 @@
-package test;
+package activity6;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
@@ -29,53 +29,16 @@ public class p1_tests
 	@Test
 	public void testSongFromFileSelection()
 	{
-		String filePath = "[CHANGE TO LOCAL FILEPATH]";
+		String filePath = "D:\\Music\\Test.mp3";
 		Optional<File> selectedFile = Optional.of(new File(filePath));
 		try
 		{
 			Method m = LibraryUI.class.getDeclaredMethod("songFromSelection", Optional.class);
 
 			m.setAccessible(true);
-			Song s = (Song) m.invoke(selectedFile);
+			Song s = (Song) m.invoke(null, selectedFile);
 			assertEquals(s.getFile().toString(), filePath);
-			assertEquals(s.getTitle(), "[CHANGE TO FILE TITLE]");
-		}
-		catch(ReflectiveOperationException e) {e.printStackTrace();}
-	}
-	
-	/*
-	 * tests the method addSongToLibrary(..) in LibraryUI
-	 * Written by Alexander Felvinci
-	 */
-	@Test
-	public void testAddSongToLibrary()
-	{
-		Library library = new Library();
-		//remove demonstration Playables
-		for (Playable p : library)
-		{
-			library.removePlayable(p);
-		}
-		String filePath = "D:\\Music\\BestSongEver.mp3";
-		Optional<File> selectedFile = Optional.of(new File(filePath));
-		try
-		{
-			Method m = LibraryUI.class.getDeclaredMethod("addSongToLibrary", Library.class, Optional.class);
-
-			m.setAccessible(true);
-			m.invoke(null, library, selectedFile);
-			
-			Field playablesField = Library.class.getDeclaredField("aPlayables");
-			playablesField.setAccessible(true);
-			List<Playable> playables = (List<Playable>) playablesField.get(library);
-			
-			assertNotEquals(0, playables.size());
-			assertEquals(Song.class, playables.get(0).getClass());
-			
-			Song s = (Song) playables.get(0);
-			
-			assertEquals(filePath, s.getFile().toString());
-			assertEquals("BestSongEver", s.getTitle());
+			assertEquals(s.getTitle(), "D:\\Music\\Test");
 		}
 		catch(ReflectiveOperationException e) {e.printStackTrace();}
 	}

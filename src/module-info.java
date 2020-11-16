@@ -7,4 +7,5 @@ module activity6
 	requires static junit;
 	requires org.junit.jupiter.api;
 	requires javafx.base;
+	requires javafx.swing;
 }
