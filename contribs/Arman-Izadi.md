@@ -1,5 +1,7 @@
 # Arman Izadi contribution statement
 
+Initial Coordination and planning and ensuring team is on schedule: !1
+
 ## Implementer
 
 Helped implement a parallel solution to problem 3: #4
@@ -13,4 +15,6 @@ Most of the solution was completed so I took initiative to unify everyone's work
 * Reviewed !7
 
 ## Tester
+
+Unfortunately was not able to write new tests but helped review and update test written by teammate: !13
 
