@@ -21,7 +21,6 @@ public class LibraryView extends Parent implements LibraryObserver
 		{
 			aObservablePlayables.add(pPlayable);
 		}
-//		aListView = new ListView<>(aObservablePlayables);
 	}
 	
 	/*

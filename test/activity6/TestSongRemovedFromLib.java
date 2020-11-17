@@ -1,5 +1,6 @@
 /*
  * This tests whether the method removePlayable(Playable pPlayable) properly updates the observers.
+ * Written by Owen Glahn
  */
 
 package activity6;
