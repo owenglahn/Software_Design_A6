@@ -18,3 +18,5 @@
 ## Problem 3
 ### Implementer
 * Changed `StatusLogger` to follow design of OBSERVER pattern https://gitlab.cs.mcgill.ca/mnassif/303a6t26/-/merge_requests/4
+### Reviewer
+* reviewed application of Model in OBSERVER pattern https://gitlab.cs.mcgill.ca/mnassif/303a6t26/-/merge_requests/5
