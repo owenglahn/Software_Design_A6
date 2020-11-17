@@ -14,7 +14,7 @@
 ### Reviewer
 * Discussed approach for initial implementation and how to apply OBSERVER design pattern https://gitlab.cs.mcgill.ca/mnassif/303a6t26/-/issues/3
 * Reviewed my initial implementation of Problem 2 https://gitlab.cs.mcgill.ca/mnassif/303a6t26/-/merge_requests/4
-* Made a class diagram for how to implement OBSERVER to activity
+* Made a class diagram for how to implement OBSERVER to activity activity6problem2_OG.PNG
 ## Problem 3
-### Reviewer
-* 
+### Implementer
+* Changed `StatusLogger` to follow design of OBSERVER pattern https://gitlab.cs.mcgill.ca/mnassif/303a6t26/-/merge_requests/4
