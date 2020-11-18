@@ -1,36 +1,33 @@
+/*
+ * This tests whether the method removePlayable(Playable pPlayable) properly updates the observers.
+ * Written by Owen Glahn
+ */
+
 package activity6;
+
+import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import static org.junit.jupiter.api.Assertions.*;
+import java.util.List;
 
 public class TestSongRemovedFromLib
 {
-	private static final Library LIBRARY = new Library();
+	public static final Library LIBRARY = new Library();
+	public static final LibraryView VIEWER = new LibraryView(LIBRARY);
 	
-	private TestSongRemovedFromLib()
+	@Test @SuppressWarnings("unchecked")
+	public void testSongRemovedFromObserver()
 	{
-		LIBRARY.addPlayable(Util.SONG0);
-		LIBRARY.addPlayable(Util.SONG1);
-		LIBRARY.addPlayable(Util.SONG2);
-		LIBRARY.addPlayable(Util.SONG3);
-		LIBRARY.addPlayable(Util.SONG4);
-		LIBRARY.addPlayable(Util.SONG5);
-		LIBRARY.addPlayable(Util.SONG6);
-		LIBRARY.addPlayable(Util.SONG7);
-		LIBRARY.addPlayable(Util.SONG8);
-		LIBRARY.addPlayable(Util.SONG9);
-		LIBRARY.addPlayable(Util.SONG10);
-	}
-	
-	
-	private static boolean libraryIsEmpty()
-	{
-		return Util.getPlayables(LIBRARY).isEmpty();
-	}
-	
-	public static void main(String[] args)
-	{
-		while ( ! libraryIsEmpty() )
+		for (int i = 0; i < Util.SONGS.length; i++)
 		{
-			
+			LIBRARY.addPlayable(Util.SONGS[i]);
 		}
+		List<Playable> libPlayables = (List<Playable>)Util.getField(LIBRARY, "aPlayables");
+		List<Playable> obsPlayables = (List<Playable>) Util.getField(VIEWER, "aObservablePlayables");
+		assertTrue(libPlayables.contains(Util.SONG0));
+		assertTrue(obsPlayables.contains(Util.SONG0));
+		LIBRARY.removePlayable(Util.SONG0);
+		assertFalse(libPlayables.contains(Util.SONG0));
+		assertFalse(obsPlayables.contains(Util.SONG0));	
 	}
-	
 }

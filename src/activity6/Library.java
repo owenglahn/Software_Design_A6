@@ -76,7 +76,6 @@ public class Library implements Iterable<Playable>
 	 */
 	public void removePlayable(Playable pPlayable)
 	{
-		assert pPlayable != null;
 		aPlayables.remove(pPlayable);
 		System.out.println("The item: " + pPlayable + " has been removed.");
 		for (LibraryObserver libObs : aLibraryObservers)

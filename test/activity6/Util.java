@@ -7,31 +7,19 @@ import java.util.List;
 
 public class Util {
 
-	public static Song SONG0;
-	public static Song SONG1;
-	public static Song SONG2;
-	public static Song SONG3;
-	public static Song SONG4;
-	public static Song SONG5;
-	public static Song SONG6;
-	public static Song SONG7;
-	public static Song SONG8;
-	public static Song SONG9;
-	public static Song SONG10;
+	public static Song SONG0 = new Song(new File("./songs/invalidExt.notLegit"), "Song0");
+	public static Song SONG1 = new Song(new File("./songs/song1.mp3"), "Song1");
+	public static Song SONG2 = new Song(new File("./songs/song2.wav"), "Song2");
+	public static Song SONG3 = new Song(new File("./songs/song3.aac"), "Song3");
+	public static Song SONG4 = new Song(new File("./songs/song4.flac"), "Song4");
+	public static Song SONG5 = new Song(new File("./songs/song5.flac"), "Song5");
+	public static Song SONG6 = new Song(new File("./songs/song6.flac"), "Song6");
+	public static Song SONG7 = new Song(new File("./songs/song7.flac"), "Song7");
+	public static Song SONG8 = new Song(new File("./songs/song8.flac"), "Song8");
+	public static Song SONG9 = new Song(new File("./songs/song9.flac"), "Song9");
+	public static Song SONG10 = new Song(new File("./songs/song10.flac"), "Song10");
+	public static Song[] SONGS = {SONG0, SONG1, SONG2, SONG3, SONG4, SONG5, SONG6, SONG7, SONG8, SONG9, SONG10};
 
-	public static void init() {
-		SONG0 = new Song(new File("./songs/invalidExt.notLegit"), "Song0");
-		SONG1 = new Song(new File("./songs/song1.mp3"), "Song1");
-		SONG2 = new Song(new File("./songs/song2.wav"), "Song2");
-		SONG3 = new Song(new File("./songs/song3.aac"), "Song3");
-		SONG4 = new Song(new File("./songs/song4.flac"), "Song4");
-		SONG5 = new Song(new File("./songs/song5.flac"), "Song5");
-		SONG6 = new Song(new File("./songs/song6.flac"), "Song6");
-		SONG7 = new Song(new File("./songs/song7.flac"), "Song7");
-		SONG8 = new Song(new File("./songs/song8.flac"), "Song8");
-		SONG9 = new Song(new File("./songs/song9.flac"), "Song9");
-		SONG10 = new Song(new File("./songs/song10.flac"), "Song10");
-	}
 	
 	static Object getField(Object pObject, String pFieldName)
 	{
